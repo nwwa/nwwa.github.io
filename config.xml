@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<juiceboxgallery 
+
+	maxImageWidth="1024"
+	maxImageHeight="768"
+	imageQuality="80"
+	thumbWidth="85"
+	thumbHeight="85"
+	thumbQuality="90"
+	useFlickr="false"
+	resizeOnImport="true"
+	cropToFit="false"
+	galleryTitle="Gallery #1"
+
+>
+  <image imageURL="images/IMG_0116.JPG"
+	thumbURL="thumbs/IMG_0116.JPG"
+	linkURL="images/IMG_0116.JPG"
+	linkTarget="_blank">
+    <title><![CDATA[Allen McCall]]></title>
+    <caption><![CDATA[Maple cutting boards with Walnut and padauk inlays]]></caption>
+  </image>
+  <image imageURL="images/IMG_0288.JPG"
+	thumbURL="thumbs/IMG_0288.JPG"
+	linkURL="images/IMG_0288.JPG"
+	linkTarget="_blank">
+    <title><![CDATA[Allen McCall]]></title>
+    <caption><![CDATA[Maple boxes with decorative fronts]]></caption>
+  </image>
+</juiceboxgallery>

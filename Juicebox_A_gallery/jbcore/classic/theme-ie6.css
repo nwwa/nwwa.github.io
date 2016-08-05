@@ -1,0 +1,113 @@
+/**
+ * Juicebox 1.2.0 Classic Theme IE6
+ *
+ * Copyright (c) 2012 Juicebox Inc. All rights reserved.
+ * http://www.juicebox.net
+ *
+ * BY USING THIS SOFTWARE, YOU AGREE TO THE JUICEBOX TERMS OF USE
+ * http://www.juicebox.net/terms
+ *
+ * Support and Documentation: http://www.juicebox.net/support
+ *
+ * Build Time: 10/22/2012 06:34:34 PM
+ */
+
+.jb-flag-msiever6 .jb-cap-frame .jb-caption {
+	background: black;
+	padding: 10px;
+	font-size: 15px;
+}
+.jb-flag-msiever6 .jb-caption .jb-caption-title
+{
+	font-size: 18px;
+}
+.jb-flag-msiever6 a.jb-go-back-icon
+{
+	background: black url('img/assets.gif') no-repeat -250px -50px;
+	padding: 3px 0 0 0;
+}
+.jb-idx-thb-list-page-number
+{
+	background: black;
+}
+.jb-flag-msiever6 div.jb-classifier-thumb-area {
+	width: 100%;
+}
+
+.jb-flag-msiever6 .jb-idx-thb-list .jb-idx-thumb
+{
+	display:inline;
+}
+
+.jb-flag-msiever6 .jb-bb-bar {
+	background: black;
+	height: 38px;
+	padding: 3px 10px 0 5px;
+}
+.jb-flag-msiever6 .jb-bb-button {
+	background: transparent url(img/assets.gif) no-repeat;
+}
+.jb-flag-msiever6 .jb-bb-bar .jb-bb-btn-top-nav.jb-bb-btn-top-nav-left {
+	background: url('img/assets.gif') no-repeat -200px -50px;
+}
+.jb-flag-msiever6 .jb-bb-bar .jb-bb-btn-top-nav.jb-bb-btn-top-nav-right {
+	background: url('img/assets.gif') no-repeat -200px 0;
+}
+.jb-flag-msiever6 .jb-bb-bar .jb-bb-btn-show-info
+{
+	background-position: -250px 0;
+}
+.jb-flag-msiever6 .jb-bb-btn-full-screen {
+	background-position: 0 0;
+}
+.jb-flag-msiever6 .jb-bb-btn-de-show-list {
+	background-position: -50px 0;
+}
+.jb-flag-msiever6.jb-flag-large-screen-mode .jb-bb-button.jb-bb-btn-de-show-list {
+	background-position: -50px -50px;
+}
+.jb-flag-msiever6 .jb-bb-btn-open-url {
+	background-position: -300px 0;
+}
+.jb-flag-msiever6 .jb-bb-btn-auto-play {
+	background-position: -100px -0px;
+}
+.jb-flag-msiever6 .jb-bb-button.jb-bb-btn-auto-play.jb-status-playing {
+	background-position: -100px -50px;
+}
+.jb-flag-msiever6 .jb-bb-btn-audio {
+	background-position: -150px 0;
+}
+.jb-flag-msiever6 .jb-navigation .jbn-nav-touch-area
+{
+	width: 49.99%;
+}
+.jb-flag-msiever6 .jb-navigation .jbn-left-button {
+	display: none;
+	background: url('img/assets.gif') no-repeat 3px -97px;
+	width: 45px;
+	height: 45px;
+	left: 10px;
+	margin-left: 10px;
+	position: absolute;
+}
+.jb-flag-msiever6 .jb-classifier-detail-area .jbn-nav-button .jbn-left-button
+{
+	margin-left: 25px;
+}
+.jb-flag-msiever6 .jb-navigation .jbn-right-button {
+	display: none;
+	background: url('img/assets.gif') no-repeat -47px -97px;
+	width: 45px;
+	height: 45px;
+	right: 10px;
+	margin-right: 10px;
+	position: absolute;
+}
+.jb-flag-msiever6 .jb-bb-splitter
+{
+	padding: 0;
+	margin: 7px 5px 0px 5px;
+	height: 18px;
+}
+
