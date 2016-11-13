@@ -1,4 +1,3 @@
-* {margin:0px;padding:0px;top:0px;} 
 body{
 	text-align: center;
 	background-color: #44607e;
@@ -31,7 +30,7 @@ body{
 	margin-top: 35px;
 }
 #navlist{
-	margin-left: 0px;
+    margin: 0;
 	padding-left: 0px;
 	white-space: nowrap;
 	position: absolute;
@@ -96,7 +95,7 @@ body{
 	font-size: 12px;
 	font-weight: normal;
 	color: #666666;
-    margin-top: 252px;
+    margin-top: 25px;
 	position: absolute;
 	width: 777px;
 	background-color: #FFFFFF;
