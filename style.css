@@ -1,39 +1,19 @@
-body{
-    text-align: center;
+body {
     background-color: #44607e;
 }
-#central{
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
-    position: relative;
-    width: 777px;
-    text-align: left;
-    background-color: #FFFFFF;
-}
-#header{
+#header {
     background-image: url(images/NWWA_banner2.jpg);
     height: 226px;
     width: 777px;
-    left: 0px;
-    top: 0px;
+    margin: 10px auto 0;
 }
-#header a{
-    font-size: 18px;
-    font-style: normal;
-    line-height: normal;
-    font-weight: bolder;
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-left: 112px;
-    font-family: Arial, Helvetica, sans-serif;
-    margin-top: 35px;
+#navlist {
+    padding: 0;
+    margin: 0 auto;
+    width: 774px;
+    overflow: hidden;
 }
-#navlist{
-    margin: 0;
-    padding-left: 0px;
-}
-#navlist li{
+#navlist li {
     float: left;
     list-style-type: none;
 }
@@ -65,58 +45,82 @@ body{
     background-image: linear-gradient(to bottom, #15427b, #9cafc7);
     text-decoration: none;
 }
-#leftside{
-    float: left;
-}
-#leftside h3{
-    border-top-width: 3px;
-    border-right-width: 3px;
-    border-bottom-width: 0px;
-    border-left-width: 3px;
-    border-top-style: solid;
-    border-right-style: solid;
-    border-bottom-style: solid;
-    border-left-style: solid;
-    border-top-color: #00306f;
-    border-right-color: #00306f;
-    border-bottom-color: #00306f;
-    border-left-color: #00306f;
-    width:200px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
-    color: #333333;
+#content {
+    margin: 0 auto;
+    width: 774px;
     background-color: #FFFFFF;
-    text-align: center;
-    display: block;
-    margin-left: 35px;
-    margin-top: 35px;
-}
-#content{
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 12px;
     font-weight: normal;
     color: #666666;
-    margin-top: 25px;
-    position: absolute;
-    width: 774px;
-    background-color: #FFFFFF;
 }
-#picture1{
-    margin-left: 35px;
+#content h1 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 15px;
+}
+#content h2 {
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 5px;
+}
+#content p {
+    padding-left: 30px;
+}
+#leftside {
+    float: left;
+    width: 300px;
+}
+#leftside img {
+    margin: 10px 50px;
     height: 140px;
     width: 200px;
-    background-image: url(images/photoofthemonth.jpg);
     border: 3px solid #00306f;
 }
-#picture2{
-    margin-left: 35px;
-    height: 150px;
-    width: 200px;
-    background-image: url(images/projectofthemonth.jpg);
-    border: 3px solid #00306f;
+#rightside {
+    margin-left: 300px;
+    background-color: #FFFFFF;
+    overflow: hidden;
 }
-#footer{
+#rightside p {
+    padding-left: 0;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    color: #666666;
+}
+#rightside h1 {
+    margin: 10px 0px 10px 0px;
+    text-align: left;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #033387;
+}
+#rightside a {
+    color: #666666;
+}
+#sponsor-list ul {
+    padding-left: 30px;
+    list-style: none;
+}
+#gallery_list {
+    display: none;
+}
+#gallery_list ul {
+    margin-top: 10px;
+    list-style: none;
+}
+#lightgallery {
+    display: none;
+}
+.gallery_thumb {
+    border: 1px solid #666666;
+    margin: 2px;
+    width: 180px;
+    height: 180px;
+}
+#footer {
     clear: both;
     background-color: #FFFFFF;
     position: relative;
@@ -125,55 +129,53 @@ body{
     background-repeat: no-repeat;
     background-position: right bottom;
 }
-#rightside{
-    float: right;
-    width: 460px;
-    background-color: #FFFFFF;
-    margin-right: 15px;
-    margin-top: 20px;
-    overflow: hidden;
+
+#newsletters table {
+    border: 5px solid grey;
+    margin: 0 auto;
 }
-#rightside p{
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: normal;
-    color: #666666;
-    margin-left: 0px;
-    margin-bottom: 20px;
-    width: 460px;
+#newsletters table tbody td {
+    border: 1px solid grey;
+    height: 30px;
 }
-#rightside h1{
-    margin: 10px 0px 10px 0px;
-    width: 300px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
+#newsletters td.year {
+    width: 50px;
+    text-align: center;
+}
+#newsletters td.letter {
+    background-image: url("images/IconDoc.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+}
+#newsletters table tbody td a {
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+
+.schedule table {
+    border-collapse: collapse;
+    border: 2px solid #006699;
+    text-align: left;
+    width: 90%;
+    margin: 0 auto;
+}
+.schedule table td, .schedule table th {
+   padding: 3px 10px;
+}
+.schedule table thead th {
+    background-color:#006699;
+    color:#FFFFFF;
+    font-size: 17px;
+    font-weight: bold;
+    border: 1px solid #0070A8;
+    padding: 7px 6px;
+}
+.schedule table tbody td {
+    color: #00557F;
     font-size: 14px;
-    font-weight: bold;
-    color: #033387;
-}
-#rightside span{
-    margin-top: 10px;
-    margin-bottom: 4px;
-    width: 430px;
-    font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    color: #649721;
-}
-#rightside a{color: #666666;}
-#footer p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFFFFF;
-    float: right;
-    padding-top: 23px;
-    margin-right: 10px;
-}
-#footer a{color: #fff;}
-#footer a:hover{color: #fff;}
-#imagepreloader{
-    visibility: hidden;
-    overflow: hidden;
-    height: 0px;
-    width: 0px;
+    border: 2px solid #006699;
+    font-weight: normal;
+    padding: 7px 6px;
 }
