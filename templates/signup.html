@@ -15,7 +15,7 @@
     <a href="mailto:membership@nwwoodworkers.org">Membership Chair</a>.
 </p>
 
-<form action="/charge" method="post">
+<form action="/payment" method="post">
     <h3>Membership Application:</h3>
 
     <div class="question">
@@ -49,14 +49,10 @@
     </div>
 
     <div class="question">
-        Amount: $20.00/year
+        <label for="email_field">Email:</label>
+        <input type="email" id="email_field" name="email">
     </div>
 
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="{{ .Key }}"
-            data-name="NWWA Membership"
-            data-description="Automatic Yearly subscription"
-            data-amount="2000"
-            data-locale="auto"></script>
+    <input type="submit" value="Next">
 </form>
 {{ end }}

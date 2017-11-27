@@ -43,16 +43,21 @@ func renderSignupFailure(w http.ResponseWriter) {
 	tmpl.Execute(w, map[string]string{"title": "Membership Failed"})
 }
 
-func handleSignup(w http.ResponseWriter, r *http.Request) {
+func handleSignupForm(w http.ResponseWriter, r *http.Request) {
 	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/signup.html")
 	tmpl.Execute(w, map[string]string{"Key": publishableKey, "title": "Membership Signup"})
 }
 
-func handleCharge(w http.ResponseWriter, r *http.Request) {
-	r.ParseForm()
+func handlePaymentForm(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		// TODO: Handle this error
+	}
 
-	customerParams := &stripe.CustomerParams{Email: r.Form.Get("stripeEmail")}
-	customerParams.SetSource(r.Form.Get("stripeToken"))
+	email := r.Form.Get("email")
+	if email == "" || !strings.Contains(email, "@") {
+		// TODO: Error that the email is required
+	}
 
 	fullNameParts := strings.Split(r.Form.Get("name"), " ")
 	if len(fullNameParts) < 2 {
@@ -69,16 +74,33 @@ func handleCharge(w http.ResponseWriter, r *http.Request) {
 		State:     r.Form.Get("state"),
 		Zip:       r.Form.Get("zipcode"),
 		Phone:     r.Form.Get("phone"),
-		Email:     r.Form.Get("stripeEmail"),
+		Email:     email,
 		Since:     time.Now().Format("Jan 2 2006"),
 	}
 
-	err := sheetsWriter.WriteNewSignup(info)
+	err = sheetsWriter.WriteNewSignup(info)
 	if err != nil {
 		logError(r, err, "Failed to add user to membership spreadsheet")
 		renderSignupFailure(w)
 		return
 	}
+
+	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/payment.html")
+	tmpl.Execute(w, map[string]string{
+		"Key":   publishableKey,
+		"title": "Membership Signup",
+		"email": email,
+	})
+}
+
+func handleCharge(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		// TODO: Handle this error
+	}
+
+	customerParams := &stripe.CustomerParams{Email: r.Form.Get("stripeEmail")}
+	customerParams.SetSource(r.Form.Get("stripeToken"))
 
 	newCustomer, err := customer.New(customerParams)
 	if err != nil {
@@ -108,7 +130,8 @@ func main() {
 	stripe.Key = os.Getenv("SECRET_KEY")
 
 	masterTmpl, _ = template.ParseFiles("templates/master.html")
-	http.HandleFunc("/signup", handleSignup)
+	http.HandleFunc("/signup", handleSignupForm)
+	http.HandleFunc("/payment", handlePaymentForm)
 	http.HandleFunc("/charge", handleCharge)
 
 	fs := http.FileServer(http.Dir("static"))
