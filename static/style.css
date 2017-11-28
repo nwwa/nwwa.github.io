@@ -66,6 +66,7 @@ body {
 }
 #content p {
     padding-left: 30px;
+    padding-right: 30px;
 }
 #leftside {
     float: left;
@@ -155,11 +156,20 @@ body {
 }
 
 form {
-    margin-left: 30px;
+    margin: 0 auto;
+    text-align: center;
+    width: 310px;
+}
+
+#signup-form {
+    border: 1px solid #a9a9a9
 }
 
 .question {
     padding: 6px;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 }
 
 .question * {
@@ -172,8 +182,25 @@ form {
     display: inline-block;
 }
 
+input {
+    margin-left: 10px
+}
+
 input[type="submit"] {
+    background: #00306e;
+    border: none;
+    border-radius: 2px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
     margin-left: 110px;
+    margin-bottom: 10px;
+    padding: 7px 15px;
+}
+
+p.payment-option {
+    background-color: #DDD;
+    padding: 10px 0;
 }
 
 .schedule table {

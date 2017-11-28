@@ -12,45 +12,46 @@
     membership application below and click Submit. Dues may be paid on the next
     page with a credit card, or by check at your first meeting. For questions,
     please contact the 
-    <a href="mailto:membership@nwwoodworkers.org">Membership Chair</a>.
+    <a href="mailto:membership@nwwoodworkers.org" target="_blank">Membership
+    Chair</a> at membership@nwwoodworkers.org.
 </p>
 
-<form action="/payment" method="post">
-    <h3>Membership Application:</h3>
+<form id="signup-form" action="/payment" method="post">
+    <h3>Membership Application</h3>
 
     <div class="question">
-        <label for="name_field">Your Name:</label>
+        <label for="name_field">Your Name</label>
         <input type="text" id="name_field" name="name">
     </div>
 
     <div class="question">
-        <label for="address_field">Street Address:</label>
-        <input type="text" id="address_field" name="address">
+        <label for="email_field">Email</label>
+        <input type="email" id="email_field" name="email">
     </div>
 
     <div class="question">
-        <label for="city_field">City:</label>
-        <input type="text" id="city_field" name="city">
-    </div>
-
-    <div class="question">
-        <label for="state_field">State:</label>
-        <input type="text" id="state_field" name="state">
-    </div>
-
-    <div class="question">
-        <label for="zip_field">Zip Code:</label>
-        <input type="number" id="zip_field" name="zipcode">
-    </div>
-
-    <div class="question">
-        <label for="phone_field">Phone Number:</label>
+        <label for="phone_field">Phone Number</label>
         <input type="tel" id="phone_field" name="phone">
     </div>
 
     <div class="question">
-        <label for="email_field">Email:</label>
-        <input type="email" id="email_field" name="email">
+        <label for="address_field">Street Address</label>
+        <input type="text" id="address_field" name="address">
+    </div>
+
+    <div class="question">
+        <label for="city_field">City</label>
+        <input type="text" id="city_field" name="city">
+    </div>
+
+    <div class="question">
+        <label for="state_field">State</label>
+        <input type="text" id="state_field" name="state">
+    </div>
+
+    <div class="question">
+        <label for="zip_field">Zip Code</label>
+        <input type="number" id="zip_field" name="zipcode">
     </div>
 
     <input type="submit" value="Next">
