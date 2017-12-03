@@ -2,32 +2,11 @@
 <h1><div align="center">Membership</div></h1>
 
 <p>
-    Membership dues are $20 per year.
+    Thank you for signing up! Membership dues are $20 per year.
 </p>
 <p class="payment-option">
-    If you would like to pay with a check please bring a check to your first
-    meeting, payable to "<strong>NorthWest Woodworking Association</strong>".
+    Please bring cash or a check to your <a href="/schedule">first meeting</a>.
+    Checks should be made payable to "<strong>NorthWest Woodworking
+    Association</strong>".
 </p>
-<p>
-    or
-</p>
-<p class="payment-option">
-<strong>(preferred)</strong></br>
-    Please use the button below to pay with a credit card. Note that this will
-    automatically renew yearly. For questions, please contact the 
-    <a href="mailto:membership@nwwoodworkers.org" target="_blank">Membership
-    Chair</a> at membership@nwwoodworkers.org.
-</p>
-
-<form action="/charge" method="post">
-    Amount: $20.00/year
-
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="{{ .Key }}"
-            data-email="{{ .email }}"
-            data-name="NWWA Membership"
-            data-description="Automatic Yearly subscription"
-            data-amount="2000"
-            data-locale="auto"></script>
-</form>
 {{ end }}
