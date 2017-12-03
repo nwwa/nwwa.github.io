@@ -5,20 +5,14 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"os"
 	"strings"
 	"time"
-
-	stripe "github.com/stripe/stripe-go"
-	"github.com/stripe/stripe-go/customer"
-	"github.com/stripe/stripe-go/sub"
 
 	"github.com/nwwa/NW-Woodworkers.github.io/sheets"
 )
 
 var (
-	masterTmpl     *template.Template
-	publishableKey = os.Getenv("PUBLISHABLE_KEY")
+	masterTmpl *template.Template
 
 	// spreadsheetID is the Google Sheets document which will be appended to
 	// with new user information
@@ -33,19 +27,20 @@ func logError(r *http.Request, err error, msg string) {
 	fmt.Printf("%s: %s\n", msg, err)
 }
 
-func renderSignupSuccess(w http.ResponseWriter) {
-	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/signup-success.html")
-	tmpl.Execute(w, map[string]string{"title": "Membership Created"})
-}
-
 func renderSignupFailure(w http.ResponseWriter) {
 	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/signup-failure.html")
-	tmpl.Execute(w, map[string]string{"title": "Membership Failed"})
+	err := tmpl.Execute(w, map[string]string{"title": "Membership Failed"})
+	if err != nil {
+		logError(nil, err, "Failed to render the signup-failure page")
+	}
 }
 
 func handleSignupForm(w http.ResponseWriter, r *http.Request) {
 	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/signup.html")
-	tmpl.Execute(w, map[string]string{"Key": publishableKey, "title": "Membership Signup"})
+	err := tmpl.Execute(w, map[string]string{"title": "Membership Signup"})
+	if err != nil {
+		logError(r, err, "Failed to render the signup page")
+	}
 }
 
 func handlePaymentForm(w http.ResponseWriter, r *http.Request) {
@@ -86,53 +81,21 @@ func handlePaymentForm(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmpl, _ := template.Must(masterTmpl.Clone()).ParseFiles("templates/payment.html")
-	tmpl.Execute(w, map[string]string{
-		"Key":   publishableKey,
+	err = tmpl.Execute(w, map[string]string{
 		"title": "Membership Signup",
 		"email": email,
 	})
-}
-
-func handleCharge(w http.ResponseWriter, r *http.Request) {
-	err := r.ParseForm()
 	if err != nil {
-		// TODO: Handle this error
-	}
-
-	customerParams := &stripe.CustomerParams{Email: r.Form.Get("stripeEmail")}
-	customerParams.SetSource(r.Form.Get("stripeToken"))
-
-	newCustomer, err := customer.New(customerParams)
-	if err != nil {
-		logError(r, err, "Failed to create a customer during signup")
+		logError(r, err, "Failed render the payment page after signup")
 		renderSignupFailure(w)
 		return
 	}
-
-	subParams := stripe.SubParams{
-		Customer: newCustomer.ID,
-		Items: []*stripe.SubItemsParams{
-			{
-				Plan: "membership",
-			},
-		},
-	}
-	if _, err := sub.New(&subParams); err != nil {
-		logError(r, err, "Failed to create a subscription during signup")
-		renderSignupFailure(w)
-		return
-	}
-
-	renderSignupSuccess(w)
 }
 
 func main() {
-	stripe.Key = os.Getenv("SECRET_KEY")
-
 	masterTmpl, _ = template.ParseFiles("templates/master.html")
 	http.HandleFunc("/signup", handleSignupForm)
 	http.HandleFunc("/payment", handlePaymentForm)
-	http.HandleFunc("/charge", handleCharge)
 
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
@@ -144,5 +107,6 @@ func main() {
 	}
 
 	log.Println("Listening...")
-	http.ListenAndServe(":1313", nil)
+	err = http.ListenAndServe(":8586", nil)
+	panic(err.Error())
 }
