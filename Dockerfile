@@ -1,4 +1,4 @@
-FROM scratch
+FROM registry.gitlab.grosinger.net/tgrosinger/root-certs:v1
 
 COPY client_secret.json /
 COPY sheets_api_secret_cache /
