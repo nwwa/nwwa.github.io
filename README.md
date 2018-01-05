@@ -21,7 +21,7 @@ Building & Running
 4. Either launch the server with:
 
    ```
-   docker run --rm \ -v /etc/ssl/certs:/etc/ssl/certs \ -p 8586:8586 nwwa
+   docker run --rm -p 8586:8586 nwwa
    ```
 
    or create the container and set it to launch automatically, then start.
@@ -30,7 +30,6 @@ Building & Running
    docker create \
        --name nwwa-website \
        -p 8586:8586 \
-       -v /etc/ssl/certs:/etc/ssl/certs \
        --expose 8586 \
        --restart always \
        nwwa:latest
