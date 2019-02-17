@@ -149,6 +149,12 @@ body {
     background-size: 30px 30px;
     width: 30px;
 }
+#newsletters td.slides {
+    background-image: url("images/icons8-microsoft-powerpoint-512.png");
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+    width: 30px;
+}
 #newsletters table tbody td a {
     display: block;
     width: 100%;
