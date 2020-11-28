@@ -50,7 +50,6 @@ body {
     width: 774px;
     background-color: #FFFFFF;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
     font-weight: normal;
     color: #666666;
 }
@@ -86,7 +85,6 @@ body {
 #rightside p {
     padding-left: 0;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 12px;
     font-weight: normal;
     color: #666666;
 }
@@ -94,7 +92,6 @@ body {
     margin: 10px 0px 10px 0px;
     text-align: left;
     font-family: Verdana, Arial, Helvetica, sans-serif;
-    font-size: 14px;
     font-weight: bold;
     color: #033387;
 }
@@ -233,4 +230,8 @@ p.payment-option {
     border: 2px solid #006699;
     font-weight: normal;
     padding: 7px 6px;
+}
+#smart-button-container {
+    width: 20em;
+    margin: auto;
 }

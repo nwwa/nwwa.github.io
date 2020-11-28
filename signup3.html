@@ -11,7 +11,7 @@
     <meta property="og:title"       content="Northwest Woodworkers Association">
     <meta property="og:description" content="A forum for woodworkers of all skill levels to share their common interests">
 
-    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
 
     <style>
         #content p {
@@ -34,68 +34,60 @@
     <div id="content">
         <h1><div align="center">Membership</div></h1>
 
-	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-<input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="2N35UUMZN9J7Q">
-<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>
-
         <p>
             Membership is open to anyone that is interested in woodworking
             no matter your age or skill level. The benefits of membership
             are greatest for those that actively participate in all of the
             activities of the Northwest Woodworkers Association.
         </p>
+
         <p>
-            Annual dues are $20.  In order to become a member, complete the
-            membership application below and click Submit. Somebody will
-            contact you to figure out how best to pay the dues.
-            For questions, please contact the 
-            <a href="mailto:membership@nwwoodworkers.org" target="_blank">Membership
-            Chair</a> at membership@nwwoodworkers.org.
+            Annual dues are $20. In order to become a member, just select the
+            way you want to pay below. Once we have received your payment, we
+            will send you a membership card and add you to the group mailing
+            list. For questions, please contact the <a
+            href="mailto:membership@nwwoodworkers.org"
+            target="_blank">membership@nwwoodworkers.org</a>.
         </p>
 
-        <form action="https://formspree.io/f/mzbkgpny" method="POST">
-            <h3>Membership Application</h3>
-
-            <div class="question">
-                <label for="name_field">Your Name</label>
-                <input type="text" id="name_field" name="name">
+        <div id="smart-button-container">
+            <div style="text-align: center;">
+                <div id="paypal-button-container"></div>
             </div>
+        </div>
+        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"
+            data-sdk-integration-source="button-factory"></script>
+        <script>
+            function initPayPalButton() {
+                paypal.Buttons({
+                    style: {
+                        shape: 'rect',
+                        color: 'gold',
+                        layout: 'vertical',
+                        label: 'paypal',
 
-            <div class="question">
-                <label for="email_field">Email</label>
-                <input type="email" id="email_field" name="email">
-            </div>
+                    },
 
-            <div class="question">
-                <label for="phone_field">Phone Number</label>
-                <input type="tel" id="phone_field" name="phone">
-            </div>
+                    createOrder: function (data, actions) {
+                        return actions.order.create({
+                            purchase_units: [{ "description": "2021 Membership", "amount": { "currency_code": "USD", "value": 20 } }]
+                        });
+                    },
 
-            <div class="question">
-                <label for="address_field">Street Address</label>
-                <input type="text" id="address_field" name="address">
-            </div>
+                    onApprove: function (data, actions) {
+                        return actions.order.capture().then(function (details) {
+                            alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                        });
+                    },
 
-            <div class="question">
-                <label for="city_field">City</label>
-                <input type="text" id="city_field" name="city">
-            </div>
+                    onError: function (err) {
+                        console.log(err);
+                    }
+                }).render('#paypal-button-container');
+            }
+            initPayPalButton();
+        </script>
 
-            <div class="question">
-                <label for="state_field">State</label>
-                <input type="text" id="state_field" name="state">
-            </div>
-
-            <div class="question">
-                <label for="zip_field">Zip Code</label>
-                <input type="number" id="zip_field" name="zipcode">
-            </div>
-
-            <input type="submit" value="Submit">
-        </form>
         <p>
             Copyright &copy; 2009-2018 Northwest Woodworkers Association
         </p>
