@@ -55,7 +55,8 @@
                 <div id="paypal-button-container"></div>
             </div>
         </div>
-        <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD"
+        <script
+            src="https://www.paypal.com/sdk/js?client-id=Aaz8RSmjjDnNMAgj5FDjPz1RxZCPZP8fOW-b5YHuM7jpKLPBrCqepX8ZRCJKCTmf18VT66zehcFSXVW5&currency=USD"
             data-sdk-integration-source="button-factory"></script>
         <script>
             function initPayPalButton() {
@@ -65,12 +66,11 @@
                         color: 'gold',
                         layout: 'vertical',
                         label: 'paypal',
-
                     },
 
                     createOrder: function (data, actions) {
                         return actions.order.create({
-                            purchase_units: [{ "description": "2021 Membership", "amount": { "currency_code": "USD", "value": 20 } }]
+                            purchase_units: [{ "description": "2021 NWWA Membership", "amount": { "currency_code": "USD", "value": 20 } }]
                         });
                     },
 
