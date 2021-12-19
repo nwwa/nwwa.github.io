@@ -4,13 +4,13 @@ body {
 #header {
     background-image: url(images/NWWA_banner2.jpg);
     height: 226px;
-    width: 777px;
+    width: 780px;
     margin: 10px auto 0;
 }
 #navlist {
     padding: 0;
     margin: 0 auto;
-    width: 774px;
+    width: 780px;
     overflow: hidden;
 }
 #navlist li {
@@ -33,10 +33,11 @@ body {
     color: #fff;
     font-size: 20px;
     height: 26px;
-    width: 129px;
+    width: auto;
+    padding: 0 18px;
     text-decoration: none;
 }
-#navlist a:hover {
+#navlist a:hover, #leftside a.link:hover {
     background: #15427b;
     background-image: -webkit-linear-gradient(top, #15427b, #9cafc7);
     background-image: -moz-linear-gradient(top, #15427b, #9cafc7);
@@ -47,7 +48,7 @@ body {
 }
 #content {
     margin: 0 auto;
-    width: 774px;
+    width: 780px;
     background-color: #FFFFFF;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-weight: normal;
@@ -75,7 +76,33 @@ body {
     margin: 10px 50px;
     height: 140px;
     width: 200px;
+}
+#leftside a.link {
+    display: table-cell;
+    position: absolute;
+    margin: 10px 50px;
+    padding-top: 30px;
+    height: 110px;
+    width: 195px;
     border: 3px solid #00306f;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    font-size: x-large;
+    text-decoration: none;
+    background: #9cafc7;
+    background-image: -webkit-linear-gradient(top, #9cafc7, #15427b);
+    background-image: -moz-linear-gradient(top, #9cafc7, #15427b);
+    background-image: -ms-linear-gradient(top, #9cafc7, #15427b);
+    background-image: -o-linear-gradient(top, #9cafc7, #15427b);
+    background-image: linear-gradient(to bottom, #9cafc7, #15427b);
+}
+#new {
+    color: #8D1B20;
+    font-size: small;
+    margin-top: 40%;
+    margin-left: -30%;
 }
 #rightside {
     margin-left: 300px;
@@ -123,6 +150,7 @@ body {
     background-color: #FFFFFF;
     position: relative;
     height: 46px;
+    padding-bottom: 1em;
     background-image: url(images/footer.gif);
     background-repeat: no-repeat;
     background-position: right bottom;
